@@ -7,3 +7,14 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# Not part of the published landing page (kept local only)
+apps-script/
+slides/
+publish/
+build_cfs_pptx.py
+ADALS-2026-Call-for-Speakers.html
+aia-logo-main.svg
+
+# Dev artifacts
+.playwright-mcp/

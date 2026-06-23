@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ADALS 2026 Call for Speakers — a practitioner-level dialogue on accessibility, ageing, and AI across the Asia-Pacific. Sessions run in English.">
+<meta name="description" content="Call for Speakers — ADALS 2026, the APAC Digital Inclusion and Accessibility Leadership Summit on AI, aging, and accessibility. Taipei, 17–18 September 2026. Sessions in English.">
 <title>Call for Speakers — ADALS 2026</title>
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Brand-mandated typography: Inter for Latin, Noto Sans TC / Noto Serif TC for Chinese.
+     IBM Plex Mono retained for monospace eyebrows and counters. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Set theme before paint to avoid a flash of the wrong theme -->
 <script>
@@ -22,51 +25,68 @@
 </script>
 
 <style>
+  /* APAC AIA brand palette
+     Primary  Navy        #003B5C   trust & professionalism — text/links/headings
+     Accent   Golden      #F8B62D   inclusion & warmth — CTA bg only (paired with Near Black, 9.66:1)
+     Decor    Sky Blue    #19ABE4   decoration only — fails AA as text on white
+     Text     Near Black  #231815   17.31:1 on white — body text
+     BG       Off White   #F7F8F8   page background
+     See brand-style-guide.html for the full contrast matrix. */
   :root {
-    --bg: #fbf8f4;
-    --surface: #f3ede4;
-    --surface-2: #ebe2d3;
-    --text: #1c1d23;
-    --muted: #4a4d57;
-    --text-mute: #6b6e78;
-    --accent: #5a3a2e;
-    --accent-2: #8b5e3c;
-    --rule: #c9bfae;
-    --field-border: #8a7a60;
-    --error: #8a2b20;
-    --ok: #3f6b3a;
+    --bg: #F7F8F8;            /* Off White — brand */
+    --surface: #ECEFF3;       /* tint of bg toward navy, kept neutral */
+    --surface-2: #DDE3EA;     /* deeper surface; muted-navy tint */
+    --text: #231815;          /* Near Black — brand body text */
+    --muted: #3D3835;         /* darker variant of near-black for hints (~12:1 on bg) */
+    --text-mute: #5D5853;     /* lighter hint color (~7.5:1 on bg) */
+    --accent: #003B5C;        /* Navy — brand primary; headings, links, focus */
+    --accent-2: #002D46;      /* deeper navy for hover */
+    --cta: #F8B62D;           /* Golden Yellow — CTA background only */
+    --cta-text: #231815;      /* Near Black on Gold = 9.66:1 AAA */
+    --rule: #B7C0CB;          /* navy-tinted rule, ~3:1 against bg for UI lines */
+    --field-border: #6B7785;  /* navy-leaning form border, >3:1 */
+    --error: #8A1F1B;         /* dark red, >7:1 on bg */
+    --ok: #1F5E2A;            /* dark green */
   }
 
+  /* Brand-spec dark mode (Phase 2+ in the style guide):
+     Navy becomes background, Off-White becomes primary text,
+     Gold accent and Sky Blue links — both kept above their
+     respective AA thresholds (gold 6.58:1, sky blue 4.49:1 large-text). */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #161821;
-      --surface: #1d2030;
-      --surface-2: #262a3c;
-      --text: #e8e6df;
-      --muted: #b1ada3;
-      --text-mute: #9a978f;
-      --accent: #d4b27e;
-      --accent-2: #c9a87a;
-      --rule: #3a3d4e;
-      --field-border: #7d8093;
-      --error: #e8a99f;
-      --ok: #9ccb95;
+      --bg: #003B5C;
+      --surface: #002D46;
+      --surface-2: #0A4C73;
+      --text: #F7F8F8;
+      --muted: #DDE3EA;
+      --text-mute: #B7C0CB;
+      --accent: #F8B62D;        /* Gold accent on Navy = 6.58:1 — headings, focus */
+      --accent-2: #FCD074;
+      --cta: #F8B62D;
+      --cta-text: #231815;
+      --rule: #1B5780;
+      --field-border: #95A5B6;
+      --error: #F4B6B0;
+      --ok: #A8D9A8;
     }
   }
 
   :root[data-theme="dark"] {
-    --bg: #161821;
-    --surface: #1d2030;
-    --surface-2: #262a3c;
-    --text: #e8e6df;
-    --muted: #b1ada3;
-    --text-mute: #9a978f;
-    --accent: #d4b27e;
-    --accent-2: #c9a87a;
-    --rule: #3a3d4e;
-    --field-border: #7d8093;
-    --error: #e8a99f;
-    --ok: #9ccb95;
+    --bg: #003B5C;
+    --surface: #002D46;
+    --surface-2: #0A4C73;
+    --text: #F7F8F8;
+    --muted: #DDE3EA;
+    --text-mute: #B7C0CB;
+    --accent: #F8B62D;
+    --accent-2: #FCD074;
+    --cta: #F8B62D;
+    --cta-text: #231815;
+    --rule: #1B5780;
+    --field-border: #95A5B6;
+    --error: #F4B6B0;
+    --ok: #A8D9A8;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -76,7 +96,8 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: 'IBM Plex Sans', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    /* Brand stack: Inter for Latin, Noto Sans TC for CJK fallback */
+    font-family: 'Inter', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
     font-size: clamp(1rem, 0.92rem + 0.4vw, 1.0625rem);
     line-height: 1.7;
     letter-spacing: 0.01em;
@@ -119,19 +140,21 @@
     border: 0;
   }
 
-  /* === Toolbar === */
-  .toolbar {
-    background: var(--bg);
-    border-bottom: 1px solid var(--rule);
+  /* === Masthead banner (full-width Navy band; fixed Navy so it reads in both
+     light and dark page modes — a translucent-white hairline keeps it
+     delineated from the Navy page background in dark mode) === */
+  .masthead {
+    background: #003B5C;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
-  .toolbar-inner {
-    max-width: 60rem;
+  .masthead-inner {
+    max-width: 48rem;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.55rem clamp(1.25rem, 4vw, 2.5rem);
+    gap: 1rem;
+    padding: 0.7rem clamp(1.25rem, 4vw, 2.5rem);
   }
   .btn-toggle {
     background: var(--surface);
@@ -151,6 +174,18 @@
   }
   .btn-toggle:hover { background: var(--surface-2); border-color: var(--accent); }
   .btn-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  /* Toggle sits on the Navy masthead — on-navy styling that holds in both page
+     themes (the base var()-driven colors would blend on Navy). */
+  .masthead .btn-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #F7F8F8;
+  }
+  .masthead .btn-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #F7F8F8;
+  }
+  .masthead .btn-toggle:focus-visible { outline-color: #F8B62D; }
 
   /* === Page chrome === */
   .page {
@@ -159,10 +194,27 @@
     padding: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem);
   }
 
-  header.doc-header {
+  .doc-header {
     margin-bottom: 2.5rem;
     padding-bottom: 1.75rem;
     border-bottom: 1px solid var(--rule);
+  }
+  /* Org identity logo — lives in the Navy masthead; always the on-navy
+     (light-ink) variant, so no theme swap. Fluid height: larger on desktop,
+     scales down on phones, capped so the band stays a sensible height. */
+  .org-logo {
+    display: inline-flex;
+    line-height: 0;
+    border-radius: 4px;
+  }
+  .org-logo img {
+    height: clamp(40px, 5.5vw, 56px);
+    width: auto;
+    max-width: 100%;
+  }
+  .org-logo:focus-visible {
+    outline: 3px solid #F8B62D;   /* Gold reads on Navy in both modes (6.58:1) */
+    outline-offset: 4px;
   }
   .eyebrow {
     font-family: 'IBM Plex Mono', ui-monospace, monospace;
@@ -174,20 +226,22 @@
     font-weight: 500;
   }
   h1 {
-    font-family: 'Fraunces', 'Noto Serif TC', Georgia, serif;
-    font-weight: 500;
+    /* Brand: Latin headings use Inter heavy; Chinese chars fall through to Noto Serif TC SemiBold */
+    font-family: 'Inter', 'Noto Serif TC', 'PingFang TC', Georgia, serif;
+    font-weight: 700;
+    color: var(--accent);            /* Navy — brand primary on Off-White = 11.09:1 */
     font-size: clamp(1.875rem, 1.4rem + 1.8vw, 2.625rem);
     line-height: 1.2;
     letter-spacing: -0.01em;
     margin: 0 0 1rem;
   }
   .lead {
-    font-family: 'Fraunces', 'Noto Serif TC', Georgia, serif;
+    font-family: 'Inter', 'Noto Serif TC', 'PingFang TC', Georgia, serif;
     font-size: clamp(1.0625rem, 0.95rem + 0.55vw, 1.1875rem);
     line-height: 1.6;
     color: var(--accent);
     margin: 0 0 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   main { display: block; }
@@ -201,8 +255,9 @@
   strong { font-weight: 600; }
 
   h2 {
-    font-family: 'Fraunces', 'Noto Serif TC', Georgia, serif;
-    font-weight: 500;
+    font-family: 'Inter', 'Noto Serif TC', 'PingFang TC', Georgia, serif;
+    font-weight: 700;
+    color: var(--accent);            /* Navy headings */
     font-size: clamp(1.375rem, 1.2rem + 0.9vw, 1.75rem);
     line-height: 1.25;
     margin: 2.75rem 0 1rem;
@@ -222,8 +277,6 @@
   }
   .themes li:last-child { border-bottom: none; }
   .themes li::before {
-    content: counter(theme-c);
-    counter-increment: theme-c;
     position: absolute;
     left: 0;
     top: 0.55rem;
@@ -231,7 +284,9 @@
     color: var(--accent);
     font-weight: 500;
   }
-  .themes { counter-reset: theme-c; }
+  ol.themes { counter-reset: theme-c; }
+  ol.themes li::before { content: counter(theme-c); counter-increment: theme-c; }
+  ul.themes li::before { content: "\2013"; }   /* en dash for unordered lists (not numbered) */
   .themes li strong { color: var(--accent); }
 
   .note {
@@ -274,9 +329,9 @@
     background: var(--surface);
   }
   legend {
-    font-family: 'Fraunces', 'Noto Serif TC', Georgia, serif;
+    font-family: 'Inter', 'Noto Serif TC', 'PingFang TC', Georgia, serif;
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--accent);
     padding: 0 0.5rem;
     margin-left: -0.25rem;
@@ -383,25 +438,39 @@
     outline-offset: 2px;
   }
   .choice-list { margin-top: 0.2rem; }
+  /* When a checkbox group hits its max (e.g. themes), the unchosen options are
+     disabled — grey them so it is clear they are temporarily unavailable. */
+  .choice:has(input:disabled) { opacity: 0.55; }
 
   .consent .choice { align-items: flex-start; }
 
-  /* Submit */
+  /* Submit — brand CTA: Golden Yellow background + Near Black text = 9.66:1 (AAA).
+     Border kept in Navy so the button still reads as a button when zoomed or
+     in forced-colors mode, and so contrast with bg satisfies 1.4.11 (>=3:1). */
   .btn-submit {
-    font-family: 'IBM Plex Sans', 'Noto Sans TC', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
     font-size: 1rem;
-    font-weight: 600;
-    color: var(--bg);
-    background: var(--accent);
+    font-weight: 700;
+    color: var(--cta-text);
+    background: var(--cta);
     border: 2px solid var(--accent);
     border-radius: 4px;
     padding: 0.85rem 2rem;
     min-height: 48px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
-  .btn-submit:hover { background: var(--accent-2); border-color: var(--accent-2); }
-  .btn-submit:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .btn-submit:hover {
+    background: var(--accent);
+    color: #FFFFFF;
+    border-color: var(--accent);
+  }
+  .btn-submit:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
 
   /* Submit-time summary of errors */
   .form-status {
@@ -428,6 +497,49 @@
   }
   footer.doc-footer a { color: var(--accent); }
 
+  /* === Key dates callout (brand: gold left-border for "look here" emphasis,
+     never used as text — sky blue / gold remain decoration-only per brand) === */
+  .key-dates {
+    background: var(--surface);
+    border-left: 5px solid var(--cta);
+    padding: 1.1rem 1.4rem 1.25rem;
+    margin: 0 0 2.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .key-dates h2 {
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+    font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  }
+  .date-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: clamp(1rem, 2.5vw, 2rem);
+    row-gap: 0.45rem;
+    margin: 0;
+  }
+  .date-list dt {
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .date-list dd { margin: 0; }
+  @media (max-width: 32rem) {
+    .date-list { grid-template-columns: 1fr; row-gap: 0.15rem; }
+    .date-list dd { margin: 0 0 0.7rem; }
+    .date-list dd:last-child { margin-bottom: 0; }
+  }
+
+  /* h3 — used in Travel/honoraria/attendance subsections */
+  h3 {
+    font-family: 'Inter', 'Noto Serif TC', 'PingFang TC', Georgia, serif;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
+    line-height: 1.3;
+    margin: 1.6rem 0 0.4rem;
+  }
+  h3:first-of-type { margin-top: 0.5rem; }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
@@ -442,7 +554,7 @@
   }
 
   @media print {
-    .skip-link, .toolbar, .btn-submit { display: none; }
+    .skip-link, .masthead, .btn-submit { display: none; }
     body { background: #fff; color: #000; }
     fieldset { background: #fff; break-inside: avoid; }
   }
@@ -452,347 +564,114 @@
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<div class="toolbar">
-  <div class="toolbar-inner">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="org-logo" href="https://apac-aia.org">
+      <img src="aia-logo-dark.svg" alt="APAC Authentic Inclusion Association" width="256" height="48">
+    </a>
     <button class="btn-toggle" id="theme-toggle" type="button" aria-pressed="false">
       <span aria-hidden="true">&#9680;</span>
       <span class="visually-hidden">Toggle light or dark theme</span>
     </button>
   </div>
-</div>
+</header>
 
 <div class="page">
 
-  <header class="doc-header">
-    <p class="eyebrow">ADALS 2026 &middot; Asia-Pacific dialogue on accessibility, ageing &amp; AI</p>
-    <h1>Call for Speakers</h1>
-    <p class="lead">We are looking for practitioners from across the Asia-Pacific to join a working dialogue on accessibility, ageing, and AI.</p>
-    <p>ADALS 2026 is a first-edition, practitioner-level event. It is built around conversation, not lectures &mdash; mid-career practitioners and the people inside intermediary organisations comparing what actually works. If you are doing this work somewhere in the Asia-Pacific, we would like to hear from you.</p>
-  </header>
-
   <main id="main" tabindex="-1">
+
+    <div class="doc-header">
+      <p class="eyebrow">ADALS 2026 &middot; APAC Digital Inclusion &amp; Accessibility Leadership Summit</p>
+      <h1>Call for Speakers</h1>
+      <p class="lead">We are inviting practitioners from across the Asia-Pacific to speak at ADALS 2026, the first edition of a leadership summit on accessibility, aging, and AI.</p>
+    </div>
+
+    <section aria-labelledby="h-about-summit">
+      <h2 id="h-about-summit">About ADALS 2026</h2>
+      <p>ADALS 2026 is the first edition of the APAC Digital Inclusion and Accessibility Leadership Summit: a leadership-level gathering at the meeting point of AI, aging, and accessibility. It is convened by the APAC Authentic Inclusion Association (亞太包容創新協會) and held in Taipei on 17 and 18 September 2026.</p>
+      <p><strong>Why now.</strong> The EU&rsquo;s European Accessibility Act came into force in June 2025, putting immediate pressure on Asia-Pacific exporters. WCAG 2.2 is the current standard and WCAG 3.0 is still being written, yet no regional forum is turning either into local practice. And Japan, Taiwan, and South Korea are among the world&rsquo;s fastest-aging societies, where technology-enabled accessibility, such as AI, is becoming a necessity rather than an option. ADALS exists to give the region its own table for these questions.</p>      <p><strong>Who it is for.</strong> ADALS is being designed for senior leaders from across the Asia-Pacific: technology and product executives, policymakers, hardware manufacturers, accessibility professionals, and people from universities and the non-profit sector. It is a working summit aimed at practice and decisions, not a compliance workshop.</p>
+      <p><strong>What we are looking for.</strong> Keynote sessions anchor each day. The open program of talks, panels, and workshops is where we want voices from across the region: practitioners with a real case to share. If that is you, we would like to hear from you.</p>    </section>
+
+    <section class="key-dates" aria-labelledby="h-dates">
+      <h2 id="h-dates">Key dates</h2>
+      <dl class="date-list">
+        <dt>How proposals are reviewed</dt>
+        <dd>On a rolling basis. The earlier you submit, the better &mdash; the program fills up as strong proposals come in.</dd>
+        <dt>Final deadline</dt>
+        <dd><time datetime="2026-08-31">31 August 2026</time> (Monday), or earlier if the program fills.</dd>
+        <dt>Notification of decision</dt>
+        <dd>Rolling; we usually respond within about two weeks of your submission.</dd>
+        <dt>Summit dates</dt>
+        <dd><time datetime="2026-09-17">17</time>&ndash;<time datetime="2026-09-18">18 September 2026</time>, Taipei</dd>
+      </dl>
+    </section>
 
     <section aria-labelledby="h-about">
       <h2 id="h-about">Before you start</h2>
       <p>A few things worth knowing before you fill this in:</p>
       <ul class="themes" aria-label="Practical notes">
         <li><strong>Sessions run in English.</strong> ADALS 2026 is a pan-regional dialogue, so the working language is English. You do not need to be a native speaker &mdash; you do need to be comfortable presenting and taking part in discussion in English.</li>
-        <li><strong>In person or remote.</strong> The event is anchored in Taiwan, but remote participation is genuinely supported. Travel is not a requirement for taking part.</li>
-        <li><strong>This is an expression of interest.</strong> Submitting does not confirm a slot. The organising team will be in touch to talk through fit and format.</li>
+        <li><strong>In person in Taipei.</strong> ADALS 2026 runs as an in-person summit; sessions are not streamed or held remotely. Taking part means joining us in Taipei on 17 and 18 September.</li>
+        <li><strong>Thank you for your expression of interest.</strong> We read every proposal and will be in touch to talk through fit and format before anything is confirmed.</li>
       </ul>
 
-      <p>The programme is built around five themes. Your proposed session should connect to one of them (or tell us it spans several):</p>
+      <p>The program is built around five themes, and every proposal should sit somewhere in AI, aging, and accessibility, or where they meet. Your session should connect to one to three of them:</p>
       <ol class="themes" aria-label="The five themes">
-        <li><strong>Trust &amp; Transparency</strong> &mdash; opaque decisions, and the right to challenge them as AI scales.</li>
-        <li><strong>Who Can Use Daily Services?</strong> &mdash; the shifting threshold to everyday services, and who gets left at the door.</li>
-        <li><strong>Caregiving and Life in Old Age</strong> &mdash; care under strain, and whether AI catches the gap or adds to it.</li>
-        <li><strong>Understanding and Being Understood</strong> &mdash; communication across ability, language, and generation.</li>
-        <li><strong>Patches and Rebuilds in Governance</strong> &mdash; where accessibility sits inside organisations.</li>
+        <li><strong>Trust &amp; Transparency</strong> &mdash; AI decisions, explainability, accountability, and the right to challenge automated systems.</li>
+        <li><strong>Who Can Use Daily Services?</strong> &mdash; access to everyday services (banking, health, transport, public services, ID), and the barriers that shut people out.</li>
+        <li><strong>Caregiving and Life in Old Age</strong> &mdash; how AI, services, and policy reshape independence, care, and risk as we age.</li>
+        <li><strong>Understanding and Being Understood</strong> &mdash; accessible communication across disability, language, cognition, culture, and generation.</li>
+        <li><strong>Embedding Accessibility in Governance</strong> &mdash; procurement, accountability, regulation, and organizational change.</li>
       </ol>
 
       <div class="note">
-        <p><strong>On access and captioning.</strong> We want this to work for the people taking part. There is a field below for any access needs &mdash; please use it. We are also looking into live captioning for sessions; if captions in a particular language would help you or your audience, tell us there. We would rather know early than guess.</p>
+        <p><strong>On access and captioning.</strong> We want this to work for the people taking part. The speaker form has a field for access needs &mdash; please use it. Sessions will have live captions; if captions in a particular language would help you or your audience, tell us there. We would rather know early than guess.</p>
       </div>
+
     </section>
 
-    <section aria-labelledby="h-form">
-      <h2 id="h-form">Speaker sign-up</h2>
+    <section aria-labelledby="h-formats">
+      <h2 id="h-formats">Session formats</h2>
+      <p>The open program runs in these formats (approximate lengths, from the draft program). Tell us which you are open to in the form &mdash; we will discuss the best fit with you after selection.</p>
+      <ul class="themes" aria-label="Session formats">
+        <li><strong>Talk</strong> &mdash; about 50 minutes, including audience Q&amp;A. One speaker, one case or argument.</li>
+        <li><strong>Fireside chat</strong> &mdash; about 50 minutes. Two people in conversation, moderated, with open Q&amp;A.</li>
+        <li><strong>Workshop</strong> &mdash; about 90 minutes. Hands-on and practical, with a smaller group.</li>
+      </ul>
 
-      <p class="form-intro">
-        Fields marked <span class="req-key">(required)</span> must be completed.
-        Everything else is optional &mdash; share what you can.
-      </p>
+    </section>
 
-      <!--
-        ============================================================
-        SUBMISSION ENDPOINT — Google Apps Script + Google Sheet
-        ============================================================
-        Replace PASTE_APPS_SCRIPT_EXEC_URL below with the Web app URL
-        from deploying apps-script/Code.gs. Setup steps are in that
-        file's header comment, and in the repo README.
+    <section aria-labelledby="h-practical">
+      <h2 id="h-practical">What taking part includes</h2>
+      <p>Speaking at ADALS 2026 includes:</p>
+      <ul class="themes" aria-label="What speakers receive">
+        <li><strong>A complimentary full pass</strong> to both summit days, including the networking reception.</li>
+        <li><strong>A place on the program</strong> in front of the audience we are bringing together: regional leaders, policymakers, and practitioners, with your name, role, and session featured.</li>
+        <li><strong>A recording of your session</strong> for your own use.</li>
+        <li><strong>A formal letter of invitation</strong> on ADALS 2026 letterhead, suitable for your employer, institution, or a grant body to support a travel funding request.</li>
+      </ul>
 
-        Until the real URL is set the form refuses to submit (the JS
-        checks for the PASTE_ placeholder) — it never silently looks
-        like it worked.
-        ============================================================
-      -->
-      <form id="speaker-form" method="POST"
-            action="PASTE_APPS_SCRIPT_EXEC_URL"
-            novalidate>
+      <h3>Travel and honoraria</h3>
+      <p>As a first-edition event, ADALS 2026 is not able to offer speaker honoraria or travel subsidies. Speakers cover their own travel and accommodation in Taipei.</p>
+      <p>If travel cost would decide whether you can take part, please tell us in the Notes field at the end of the form. We are exploring sponsor partnerships and want to know whose participation depends on it.</p>
+      <h3>Time commitment</h3>
+      <p>Speakers are not required to attend beyond their own session. You are warmly welcome to stay for the rest of the summit&mdash;but that is entirely optional.</p>
+    </section>
 
-        <div id="form-status" class="form-status" role="alert" aria-live="assertive"></div>
-
-        <!-- Honeypot: off-screen, hidden from assistive tech and the tab
-             order — people never fill it, bots do. Checked in Code.gs. -->
-        <div class="hp" aria-hidden="true">
-          <label for="hp_company">Company (leave this field blank)</label>
-          <input type="text" id="hp_company" name="hp_company"
-                 tabindex="-1" autocomplete="off">
-        </div>
-
-        <fieldset>
-          <legend>About you</legend>
-
-          <div class="field">
-            <label for="name">Full name <span class="req">(required)</span>
-              <span class="visually-hidden">required</span>
-            </label>
-            <p class="hint" id="name-hint">As you would like it to appear in the programme.</p>
-            <input type="text" id="name" name="name" autocomplete="name"
-                   aria-describedby="name-hint name-error" required>
-            <p class="error" id="name-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="email">Email address <span class="req">(required)</span>
-              <span class="visually-hidden">required</span>
-            </label>
-            <p class="hint" id="email-hint">We will use this to follow up. We will not share it.</p>
-            <input type="email" id="email" name="email" autocomplete="email"
-                   inputmode="email" aria-describedby="email-hint email-error" required>
-            <p class="error" id="email-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="country">Country or region <span class="req">(required)</span>
-              <span class="visually-hidden">required</span>
-            </label>
-            <select id="country" name="country" aria-describedby="country-error" required>
-              <option value="">Please choose&hellip;</option>
-              <option value="Taiwan">Taiwan</option>
-              <option value="Japan">Japan</option>
-              <option value="Korea, Republic of">Korea, Republic of</option>
-              <option value="Australia">Australia</option>
-              <option value="China">China</option>
-              <option value="Hong Kong SAR">Hong Kong SAR</option>
-              <option value="India">India</option>
-              <option value="Indonesia">Indonesia</option>
-              <option value="Malaysia">Malaysia</option>
-              <option value="New Zealand">New Zealand</option>
-              <option value="Philippines">Philippines</option>
-              <option value="Singapore">Singapore</option>
-              <option value="Thailand">Thailand</option>
-              <option value="Viet Nam">Viet Nam</option>
-              <option value="Other Asia-Pacific">Other Asia-Pacific (tell us in the notes)</option>
-              <option value="Outside Asia-Pacific">Outside Asia-Pacific</option>
-            </select>
-            <p class="error" id="country-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="organization">Organisation or affiliation <span class="req">(required)</span>
-              <span class="visually-hidden">required</span>
-            </label>
-            <p class="hint" id="org-hint">If you take part independently, write &ldquo;Independent&rdquo;.</p>
-            <input type="text" id="organization" name="organization"
-                   autocomplete="organization"
-                   aria-describedby="org-hint organization-error" required>
-            <p class="error" id="organization-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="role">Role or title <span class="req">(required)</span>
-              <span class="visually-hidden">required</span>
-            </label>
-            <input type="text" id="role" name="role"
-                   autocomplete="organization-title"
-                   aria-describedby="role-error" required>
-            <p class="error" id="role-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="link">Personal or professional link <span class="optional">(optional)</span></label>
-            <p class="hint" id="link-hint">A website, LinkedIn profile, or similar &mdash; helps us understand your work.</p>
-            <input type="url" id="link" name="link" inputmode="url"
-                   placeholder="https://"
-                   aria-describedby="link-hint link-error">
-            <p class="error" id="link-error"></p>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Your proposed session</legend>
-
-          <div class="field">
-            <span class="group-label" id="theme-label">Which theme does it connect to?
-              <span class="req">(required)</span>
-            </span>
-            <div class="choice-list" role="radiogroup"
-                 aria-labelledby="theme-label" aria-describedby="theme-error">
-              <label class="choice"><input type="radio" name="theme" value="Trust &amp; Transparency" required> Trust &amp; Transparency</label>
-              <label class="choice"><input type="radio" name="theme" value="Who Can Use Daily Services"> Who Can Use Daily Services?</label>
-              <label class="choice"><input type="radio" name="theme" value="Caregiving and Life in Old Age"> Caregiving and Life in Old Age</label>
-              <label class="choice"><input type="radio" name="theme" value="Understanding and Being Understood"> Understanding and Being Understood</label>
-              <label class="choice"><input type="radio" name="theme" value="Patches and Rebuilds in Governance"> Patches and Rebuilds in Governance</label>
-              <label class="choice"><input type="radio" name="theme" value="Cross-theme or still deciding"> Cross-theme, or still deciding</label>
-            </div>
-            <p class="error" id="theme-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="title">Working title <span class="req">(required)</span>
-              <span class="visually-hidden">required</span>
-            </label>
-            <p class="hint" id="title-hint">A plain working title is fine &mdash; it does not have to be final.</p>
-            <input type="text" id="title" name="title"
-                   aria-describedby="title-hint title-error" required>
-            <p class="error" id="title-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="description">Short description <span class="req">(required)</span>
-              <span class="visually-hidden">required</span>
-            </label>
-            <p class="hint" id="desc-hint">
-              Roughly 100&ndash;200 words. What is the session about, and what is the
-              concrete case or experience behind it? If you are outside Taiwan,
-              tell us the angle from your own region &mdash; the programme pairs a
-              local case with perspectives from across the Asia-Pacific.
-            </p>
-            <textarea id="description" name="description" rows="6"
-                      aria-describedby="desc-hint description-error" required></textarea>
-            <p class="error" id="description-error"></p>
-          </div>
-
-          <div class="field">
-            <span class="group-label" id="format-label">Preferred format
-              <span class="req">(required)</span>
-            </span>
-            <p class="hint" id="format-hint">Not binding &mdash; it just helps us plan the agenda.</p>
-            <div class="choice-list" role="radiogroup"
-                 aria-labelledby="format-label" aria-describedby="format-hint format-error">
-              <label class="choice"><input type="radio" name="format" value="Panel" required> Panel contributor</label>
-              <label class="choice"><input type="radio" name="format" value="Talk"> Short talk</label>
-              <label class="choice"><input type="radio" name="format" value="Workshop"> Workshop or hands-on session</label>
-              <label class="choice"><input type="radio" name="format" value="Open to discuss"> Open to discuss</label>
-            </div>
-            <p class="error" id="format-error"></p>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Taking part</legend>
-
-          <div class="field">
-            <span class="group-label" id="attend-label">How would you take part?
-              <span class="req">(required)</span>
-            </span>
-            <div class="choice-list" role="radiogroup"
-                 aria-labelledby="attend-label" aria-describedby="attend-error">
-              <label class="choice"><input type="radio" name="attendance" value="In person" required> In person (Taiwan)</label>
-              <label class="choice"><input type="radio" name="attendance" value="Remote"> Remotely</label>
-              <label class="choice"><input type="radio" name="attendance" value="Either"> Either works for me</label>
-            </div>
-            <p class="error" id="attendance-error"></p>
-          </div>
-
-          <div class="field">
-            <label for="timezone">Your time zone <span class="optional">(optional)</span></label>
-            <p class="hint" id="tz-hint">Helps us schedule across the region. For example: UTC+8, UTC+9.</p>
-            <input type="text" id="timezone" name="timezone"
-                   placeholder="e.g. UTC+8"
-                   aria-describedby="tz-hint">
-          </div>
-
-          <div class="field">
-            <label for="other-languages">Other languages you could also present in
-              <span class="optional">(optional)</span>
-            </label>
-            <p class="hint" id="lang-hint">Sessions run in English, but knowing this helps us plan.</p>
-            <input type="text" id="other-languages" name="other_languages"
-                   aria-describedby="lang-hint">
-          </div>
-
-          <div class="field">
-            <label for="captions">Captioning &mdash; would a particular language help?
-              <span class="optional">(optional)</span>
-            </label>
-            <p class="hint" id="cap-hint">
-              We are exploring live captioning for sessions. This is not a promise
-              yet &mdash; telling us here helps us scope it.
-            </p>
-            <input type="text" id="captions" name="captions"
-                   aria-describedby="cap-hint">
-          </div>
-
-          <div class="field">
-            <label for="access">Access needs <span class="optional">(optional)</span></label>
-            <p class="hint" id="access-hint">
-              Anything we should know so that taking part works for you &mdash;
-              access, scheduling, equipment, or anything else. We would rather
-              hear it now than miss it.
-            </p>
-            <textarea id="access" name="access_needs" rows="3"
-                      aria-describedby="access-hint"></textarea>
-          </div>
-        </fieldset>
-
-        <fieldset class="consent">
-          <legend>Consent</legend>
-
-          <div class="field">
-            <div class="choice">
-              <input type="checkbox" id="consent-english" name="consent_english"
-                     value="yes" aria-describedby="consent-english-error" required>
-              <label for="consent-english">
-                I can present and take part in discussion in English.
-                <span class="req">(required)</span>
-              </label>
-            </div>
-            <p class="error" id="consent-english-error"></p>
-          </div>
-
-          <div class="field">
-            <div class="choice">
-              <input type="checkbox" id="consent-data" name="consent_data"
-                     value="yes" aria-describedby="consent-data-error" required>
-              <label for="consent-data">
-                I agree that ADALS 2026 may store and use the information in this
-                form to plan the event and contact me.
-                <span class="req">(required)</span>
-                <!-- TODO: link this to a real privacy / data-use note before launch. -->
-              </label>
-            </div>
-            <p class="error" id="consent-data-error"></p>
-          </div>
-
-          <div class="field">
-            <div class="choice">
-              <input type="checkbox" id="consent-publish" name="consent_publish"
-                     value="yes" aria-describedby="consent-publish-error" required>
-              <label for="consent-publish">
-                If my session is selected, I agree that my name, role, and session
-                description may appear on the ADALS 2026 website and programme.
-                <span class="req">(required)</span>
-              </label>
-            </div>
-            <p class="error" id="consent-publish-error"></p>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Anything else</legend>
-          <div class="field">
-            <label for="notes">Notes for the organising team <span class="optional">(optional)</span></label>
-            <p class="hint" id="notes-hint">
-              Questions, context, a co-speaker you would bring, or anything that
-              did not fit above.
-            </p>
-            <textarea id="notes" name="notes" rows="3"
-                      aria-describedby="notes-hint"></textarea>
-          </div>
-        </fieldset>
-
-        <button type="submit" class="btn-submit">Submit sign-up</button>
-      </form>
-      <iframe name="cfs-sink" id="cfs-sink" title="Form submission" hidden></iframe>
+    <section aria-labelledby="h-apply">
+      <h2 id="h-apply">Apply to speak</h2>
+      <p>Proposals are submitted through our speaker form &mdash; it is in English and takes about ten minutes to complete.</p>
+      <p><a class="btn-submit" href="https://docs.google.com/forms/d/e/1FAIpQLSd0rw2bsNthK6trMzSSeih83XXQrvkGHD4-xDsl_H_49FPeQQ/viewform">Apply to speak &rarr;</a></p>
+      <p class="form-intro">Privacy note: the speaker form asks for personal information so ADALS can review proposals, plan the program and access arrangements, and contact applicants. Details are provided in the form before submission.</p>
+      <p class="form-intro">Questions before you start? Email <a href="mailto:claire.chang@apac-aia.org">claire.chang@apac-aia.org</a>.</p>
     </section>
 
   </main>
 
   <footer class="doc-footer">
-    <p>ADALS 2026 &middot; Asia-Pacific dialogue on accessibility, ageing, and AI.
-       Questions about the call? Contact the organising team.</p>
+    <p>ADALS 2026 &middot; Asia-Pacific dialogue on accessibility, aging, and AI.<br>
+       Convened by <a href="https://apac-aia.org/">APAC Authentic Inclusion Association</a> (亞太包容創新協會).<br>
+       Questions about the call for speakers? Email <a href="mailto:claire.chang@apac-aia.org">claire.chang@apac-aia.org</a>.</p>
   </footer>
 
 </div>
@@ -821,159 +700,6 @@
     });
   })();
 
-  /* === Accessible form validation ===
-     Native validation is reliable for keyboard and screen readers, but the
-     browser's default bubble is easy to miss. This enhancement, on submit:
-       - finds each invalid control
-       - writes a plain-language message into its linked .error element
-       - sets aria-invalid so screen readers and the CSS pick it up
-       - moves focus to the first invalid control
-       - announces a summary in the role="alert" status region
-     Errors clear as the user corrects each field. */
-  (function () {
-    var form = document.getElementById('speaker-form');
-    if (!form) return;
-    var status = document.getElementById('form-status');
-    var submitBtn = form.querySelector('.btn-submit');
-    var sink = document.getElementById('cfs-sink');
-    var submitted = false;
-    var failTimer = null;
-
-    /* Progressive enhancement: post into a hidden iframe so the page
-       does not navigate away; show an in-page thank-you on response.
-       Without JS the form posts normally and the Apps Script returns
-       its own thank-you page — still works. */
-    if (sink) {
-      form.setAttribute('target', 'cfs-sink');
-      sink.addEventListener('load', function () {
-        if (submitted) showThankYou();
-      });
-    }
-
-    // Built with createElement / textContent — no innerHTML.
-    function showThankYou() {
-      if (failTimer) clearTimeout(failTimer);
-      var section = document.getElementById('h-form').parentNode;
-      while (section.firstChild) section.removeChild(section.firstChild);
-      var h = document.createElement('h2');
-      h.id = 'h-form';
-      h.setAttribute('tabindex', '-1');
-      h.textContent = 'Thank you';
-      var p = document.createElement('p');
-      p.textContent = 'Your speaker sign-up for ADALS 2026 has been '
-        + 'received. The organising team will be in touch.';
-      section.appendChild(h);
-      section.appendChild(p);
-      h.focus();
-    }
-
-    function errorFor(control) {
-      // Radio groups share one named error element: <name>-error.
-      var base = control.name ? control.name.replace(/_/g, '-') : control.id;
-      return document.getElementById(base + '-error') ||
-             document.getElementById(control.id + '-error');
-    }
-
-    function messageFor(control) {
-      var v = control.validity;
-      if (v.valueMissing) {
-        if (control.type === 'checkbox') return 'Please tick this box to continue.';
-        if (control.type === 'radio') return 'Please choose one option.';
-        if (control.tagName === 'SELECT') return 'Please choose an option.';
-        return 'This field is required.';
-      }
-      if (v.typeMismatch && control.type === 'email') {
-        return 'Please enter a valid email address, for example name@example.com.';
-      }
-      if (v.typeMismatch && control.type === 'url') {
-        return 'Please enter a full web address starting with https://';
-      }
-      return 'Please check this field.';
-    }
-
-    function clearError(control) {
-      var box = errorFor(control);
-      if (box) box.textContent = '';
-      if (control.type === 'radio') {
-        form.querySelectorAll('input[name="' + control.name + '"]').forEach(function (r) {
-          r.removeAttribute('aria-invalid');
-        });
-      } else {
-        control.removeAttribute('aria-invalid');
-      }
-    }
-
-    // Clear a field's error as soon as the user fixes it.
-    form.addEventListener('input', function (e) {
-      if (e.target.willValidate && e.target.checkValidity()) clearError(e.target);
-    });
-    form.addEventListener('change', function (e) {
-      if (e.target.willValidate && e.target.checkValidity()) clearError(e.target);
-    });
-
-    form.addEventListener('submit', function (e) {
-      // Guard: refuse to submit until a real backend URL is wired in.
-      var action = form.getAttribute('action') || '';
-      if (action.indexOf('PASTE_') !== -1 || action === '') {
-        e.preventDefault();
-        status.textContent =
-          'This form is not connected to a backend yet. See '
-          + 'apps-script/Code.gs in the repo for the setup steps.';
-        status.classList.add('is-error');
-        return;
-      }
-
-      var invalid = [];
-      var seenRadioGroups = {};
-
-      Array.prototype.forEach.call(form.elements, function (control) {
-        if (!control.willValidate || control.checkValidity()) return;
-        if (control.type === 'radio') {
-          if (seenRadioGroups[control.name]) return;
-          seenRadioGroups[control.name] = true;
-        }
-        invalid.push(control);
-        var box = errorFor(control);
-        if (box) box.textContent = messageFor(control);
-        if (control.type === 'radio') {
-          form.querySelectorAll('input[name="' + control.name + '"]').forEach(function (r) {
-            r.setAttribute('aria-invalid', 'true');
-          });
-        } else {
-          control.setAttribute('aria-invalid', 'true');
-        }
-      });
-
-      if (invalid.length > 0) {
-        e.preventDefault();
-        var n = invalid.length;
-        status.textContent = n === 1
-          ? 'There is 1 field that needs attention. See the highlighted field below.'
-          : 'There are ' + n + ' fields that need attention. See the highlighted fields below.';
-        status.classList.add('is-error');
-        invalid[0].focus();
-      } else {
-        status.textContent = '';
-        status.classList.remove('is-error');
-        // Valid — let the native submit proceed into the hidden iframe.
-        submitted = true;
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending…';
-        }
-        failTimer = setTimeout(function () {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit sign-up';
-          }
-          status.textContent =
-            'That is taking longer than expected. Please check your '
-            + 'connection and try submitting again.';
-          status.classList.add('is-error');
-        }, 20000);
-      }
-    });
-  })();
 </script>
 
 </body>
