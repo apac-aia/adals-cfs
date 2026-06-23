@@ -57,5 +57,5 @@ scheduled) and its organizing `Organization`.
 
 ## Re-running
 
-- axe-core: open the page, inject `axe.min.js`, call `axe.run()`.
-- Lighthouse: `npx lighthouse https://speakers.apac-aia.org --only-categories=performance,accessibility,best-practices,seo --output=html` (add `--preset=desktop` for the desktop number).
+See `TESTING.md` in this folder for a step-by-step runbook (WAVE, Lighthouse, axe,
+vision simulation) the team can follow after any change.
