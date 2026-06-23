@@ -472,6 +472,17 @@
     color: #FFFFFF;
     border-color: var(--accent);
   }
+  .btn-submit[aria-disabled="true"] {
+    color: var(--muted);
+    background: transparent;
+    border-color: var(--border);
+    cursor: default;
+  }
+  .btn-submit[aria-disabled="true"]:hover {
+    color: var(--muted);
+    background: transparent;
+    border-color: var(--border);
+  }
   /* Dark mode: flip the Gold CTA to a deep-Navy fill + white text on hover, the
      way light mode flips Gold -> Navy. The Gold border stays, so the Navy button
      still reads against the Navy page. */
@@ -719,7 +730,8 @@
     <section aria-labelledby="h-apply">
       <h2 id="h-apply">Apply to speak</h2>
       <p>Proposals are submitted through our speaker form (a Google Form). It is in English and takes about ten minutes to complete.</p>
-      <p><a class="btn-submit" href="https://docs.google.com/forms/d/e/1FAIpQLSd0rw2bsNthK6trMzSSeih83XXQrvkGHD4-xDsl_H_49FPeQQ/viewform">Apply to speak &rarr;</a></p>
+      <p><a id="apply-link" class="btn-submit" href="https://docs.google.com/forms/d/e/1FAIpQLSd0rw2bsNthK6trMzSSeih83XXQrvkGHD4-xDsl_H_49FPeQQ/viewform">Apply to speak &rarr;</a></p>
+      <p id="closed-message" class="form-intro" hidden>Submissions for ADALS 2026 have closed. Thank you to everyone who applied. Questions? Please contact <a href="mailto:claire.chang@apac-aia.org">Claire Chang</a>, Association Chair.</p>
       <p class="form-intro">Privacy note: the speaker form asks for personal information so ADALS can review proposals, plan the program and access arrangements, and contact applicants. Details are provided in the form before submission.</p>
     </section>
 
@@ -759,6 +771,21 @@
       try { localStorage.setItem('adals-theme', next); } catch (e) { /* ignore */ }
       syncPressed();
     });
+  })();
+
+  /* === Call deadline state === */
+  (function () {
+    var closeAt = new Date('2026-09-01T00:00:00+08:00');
+    if (new Date() < closeAt) return;
+
+    var link = document.getElementById('apply-link');
+    var message = document.getElementById('closed-message');
+    if (link) {
+      link.removeAttribute('href');
+      link.setAttribute('aria-disabled', 'true');
+      link.textContent = 'Call closed';
+    }
+    if (message) message.hidden = false;
   })();
 
   /* === Back-to-top button === */
