@@ -20,27 +20,25 @@ every control, no keyboard trap, skip link present; the page reflows at 320px wi
 horizontal scroll; `lang` is set; landmarks, heading order, image alt text, and link
 names are all present.
 
-## Lighthouse 13.3 (mobile preset, simulated slow 4G + 4x CPU throttle)
+## Lighthouse 13.3
 
-| Category | Score |
-|---|---|
-| Performance | 86 |
-| Accessibility | 100 |
-| Best Practices | 100 |
-| SEO | 100 |
+| Category | Mobile | Desktop |
+|---|---|---|
+| Performance | 100 | 100 |
+| Accessibility | 100 | (not run) |
+| Best Practices | 100 | (not run) |
+| SEO | 100 | (not run) |
 
-Core Web Vitals: Total Blocking Time 0 ms, Cumulative Layout Shift 0.001, both well
-inside "good". First Contentful Paint and Largest Contentful Paint 3.0 s, Speed Index
-4.4 s.
+Mobile (simulated slow 4G + 4x CPU throttle): FCP 1.1 s, LCP 1.1 s, CLS 0, TBT 0 ms.
+Desktop: Performance 100, CLS 0.
 
-Performance history: an earlier run scored 63 with FCP/LCP at 6.0 s. The Google Fonts
-stylesheets were render-blocking, and the Traditional-Chinese families (Noto Sans/Serif
-TC) are large. The fix: load the font CSS asynchronously (`media="print"` + `onload`,
-with a `<noscript>` fallback) so it no longer blocks paint, and subset the CJK request
-via `&text=` to the only Chinese on the page (the association name), cutting that
-download from hundreds of KB to a few KB. Render-blocking resources are now zero and the
-paint metrics roughly halved (63 to 86). This is still the harsh mobile preset; a desktop
-run scores higher again.
+Performance history: 63 at first (render-blocking fonts), then 86 (font CSS made async
+plus CJK subset via `&text=`). The last gains: serve the masthead banner as a preloaded
+WebP (34 KB PNG down to 17.7 KB; it is the LCP element, so LCP went 3.0 s to 1.1 s), and
+add a metric-matched `Inter Fallback` (`size-adjust` and friends over local Arial) so text
+does not shift when the web font swaps in (CLS to 0). All four categories now score 100 on
+both mobile and desktop. Note the mobile preset varies run to run; an occasional run may
+dip a point or two.
 
 Full report: `lighthouse.html` (open in a browser).
 
@@ -53,4 +51,4 @@ scheduled) and its organizing `Organization`.
 ## Re-running
 
 - axe-core: open the page, inject `axe.min.js`, call `axe.run()`.
-- Lighthouse: `npx lighthouse https://speakers.apac-aia.org --only-categories=performance,accessibility,best-practices,seo --output=html`
+- Lighthouse: `npx lighthouse https://speakers.apac-aia.org --only-categories=performance,accessibility,best-practices,seo --output=html` (add `--preset=desktop` for the desktop number).
