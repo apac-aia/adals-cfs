@@ -10,7 +10,7 @@
 - 無障礙結果頁：https://speakers.apac-aia.org/accessibility/
 - 視覺模擬圖庫：https://speakers.apac-aia.org/accessibility/vision-sim/
 
-原則：**每新增或改動一個公開頁，就把下面四項跑一次**，把結果記到 audit.md。新頁要先測過再公開。
+原則：**每新增或改動一個公開頁，就把下面五項跑一次**，把結果記到 audit.md。新頁要先測過再公開。
 
 ## 不在這裡測的：Google 表單
 
