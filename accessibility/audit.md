@@ -18,7 +18,9 @@ name, so it is not a real issue (axe reports it as "needs review", not a violati
 Manual checks (Playwright): keyboard order is logical with a visible focus ring on
 every control, no keyboard trap, skip link present; the page reflows at 320px with no
 horizontal scroll; `lang` is set; landmarks, heading order, image alt text, and link
-names are all present.
+names are all present. A screen-reader outline of the structure is saved as
+`sr-landmarks.png` and `sr-headings.png`: banner / main (six named regions) /
+contentinfo, and a clean h1 → h2 → h3 heading hierarchy with no skipped levels.
 
 ## WAVE (WebAIM, light and dark mode)
 
