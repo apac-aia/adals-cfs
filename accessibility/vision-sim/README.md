@@ -1,29 +1,31 @@
 # Vision simulation — speakers.apac-aia.org
 
-Screenshots of the Call for Speakers landing page as it appears under simulated
-vision conditions, captured by applying CSS / SVG colour-matrix filters over the
-live page (the same technique browser dev-tools use).
+Screenshots of the Call for Speakers landing page under simulated vision
+conditions, in **light and dark mode**, captured by applying CSS / SVG
+colour-matrix filters over the live page. Browse them as a gallery in
+**`index.html`** (open the folder URL); click any image for full size.
 
-| File | Condition |
+12 images = 6 conditions × 2 modes (`-light` / `-dark`):
+
+| Condition | Files |
 |---|---|
-| `amd-light.png` | Age-related macular degeneration (AMD) — blur + reduced contrast + an illustrative central scotoma, light mode |
-| `amd-dark.png` | AMD, dark mode |
-| `deuteranopia.png` | Green-weak colour vision deficiency |
-| `protanopia.png` | Red-weak |
-| `tritanopia.png` | Blue-yellow |
-| `achromatopsia.png` | Total colour blindness (greyscale) |
+| Normal (no filter) | `normal-light.png` / `normal-dark.png` |
+| AMD — macular degeneration (blur + reduced contrast + central scotoma) | `amd-light.png` / `amd-dark.png` |
+| Deuteranopia (green-weak) | `deuteranopia-*.png` |
+| Protanopia (red-weak) | `protanopia-*.png` |
+| Tritanopia (blue-yellow) | `tritanopia-*.png` |
+| Achromatopsia (total colour blindness) | `achromatopsia-*.png` |
 
 ## Takeaway
 
-The page conveys meaning through **lightness contrast** (Navy vs Off-White,
-near-black text) rather than **hue**, so every colour-deficiency view loses no
-information — see `achromatopsia.png`, fully legible with zero colour. Large,
-high-contrast headings and the Gold CTA stay readable under the AMD blur; the
-central scotoma is a visual-field limit, not a design defect — large, clear
-landmarks help users navigate around it.
+The page conveys meaning by **lightness contrast** (Navy vs Off-White, near-black
+text), not by hue — so every colour-deficiency view loses no information (see
+`achromatopsia-*`, fully legible with zero colour). Large, high-contrast headings
+and the Gold CTA stay readable under the AMD blur; the central scotoma is a
+visual-field limit, not a design defect.
 
 ## Notes
 
-These are filter approximations. For a true gaze-tracked AMD scotoma, use the
-**VisionSim** app (Braille Institute): open the page on a screen and point a phone
-camera at it. Generated at a 1000px-wide viewport; not part of the published page.
+Filter approximations. For a true gaze-tracked AMD scotoma, use the **VisionSim**
+app (open the page on a screen, point a phone camera at it). Captured at a
+1000px-wide viewport; not part of the published page.
