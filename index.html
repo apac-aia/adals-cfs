@@ -252,7 +252,7 @@
     text-decoration: underline;
     text-underline-offset: 0.2em;
   }
-  a:hover { text-decoration-thickness: 2px; }
+  a:hover { text-decoration-thickness: 3px; text-underline-offset: 0.22em; }
   strong { font-weight: 600; }
 
   h2 {
@@ -468,20 +468,53 @@
     color: #FFFFFF;
     border-color: var(--accent);
   }
-  /* In dark mode --accent is Gold, so the base hover would be white-on-Gold
-     (fails contrast, and the background does not visibly change). Use a deeper
-     Gold + near-black ink, which stays readable (>7:1) and on Navy stands out. */
+  /* Dark mode: flip the Gold CTA to a deep-Navy fill + white text on hover, the
+     way light mode flips Gold -> Navy. The Gold border stays, so the Navy button
+     still reads against the Navy page. */
   :root[data-theme="dark"] .btn-submit:hover {
-    background: #E0A800;
-    color: #231815;
-    border-color: #E0A800;
+    background: #002D46;
+    color: #FFFFFF;
+    border-color: #F8B62D;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) .btn-submit:hover {
-      background: #E0A800;
-      color: #231815;
-      border-color: #E0A800;
+      background: #002D46;
+      color: #FFFFFF;
+      border-color: #F8B62D;
     }
+  }
+
+  /* === Back-to-top floating button === */
+  .to-top {
+    position: fixed;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--accent);
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 50;
+  }
+  .to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+  .to-top:hover { background: var(--accent-2); border-color: var(--accent-2); }
+  .to-top:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  /* Dark mode: --accent is Gold, so use near-black ink on the Gold button. */
+  :root[data-theme="dark"] .to-top { color: #231815; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .to-top { color: #231815; }
   }
   .btn-submit:focus-visible {
     outline: 3px solid var(--accent);
@@ -692,6 +725,10 @@
 
 </div>
 
+<button id="to-top" class="to-top" type="button" aria-label="Back to top">
+  <span aria-hidden="true">&#8593;</span>
+</button>
+
 <script>
   /* === Theme toggle === */
   (function () {
@@ -713,6 +750,23 @@
       document.documentElement.setAttribute('data-theme', next);
       try { localStorage.setItem('adals-theme', next); } catch (e) { /* ignore */ }
       syncPressed();
+    });
+  })();
+
+  /* === Back-to-top button === */
+  (function () {
+    var btn = document.getElementById('to-top');
+    if (!btn) return;
+    function onScroll() {
+      btn.classList.toggle('is-visible', window.scrollY > 400);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    btn.addEventListener('click', function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      var main = document.getElementById('main');
+      if (main) main.focus({ preventScroll: true });
     });
   })();
 
